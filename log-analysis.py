@@ -37,8 +37,8 @@ where result.err_percent > 1.0;
 
 
 def select_query(query):
-    # Executes select query only
-    # returns results of select query
+    """ Executes select query only
+    returns results of select query"""
     db = psycopg2.connect(database=DATABASE_NAME)
     cur = db.cursor()
     cur.execute(query)
@@ -48,7 +48,7 @@ def select_query(query):
 
 
 def print_top_errors():
-    # Prnts Days with > 1% error reqests
+    """Prnts Days with > 1% error reqests"""
     entries = select_query(query_top_errors)
     # Print table header
     print("\nMore then 1% Errors were on")
@@ -61,7 +61,7 @@ def print_top_errors():
 
 
 def print_top_articles():
-    # Prints top 3 most viewed articles
+    """Prints top 3 most viewed articles"""
     entries = select_query(query_top_articles)
     # Print table header
     print("\nTop 3 Articles")
@@ -74,7 +74,7 @@ def print_top_articles():
 
 
 def print_top_auth():
-    # Prints sorted list of authors most to least popular
+    """Prints sorted list of authors most to least popular"""
     entries = select_query(query_top_authors)
     # Print table header
     print("\nThe Top Most Viewed Authors of All Times")
